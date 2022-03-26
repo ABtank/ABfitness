@@ -1,0 +1,70 @@
+server:
+  port: 8889
+  servlet:
+    context-path: /
+
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/abfitness
+    username: postgres
+    password: 123
+
+  profiles:
+    active:
+
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQL9Dialect
+        ddl-auto: validate
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: schedulerfreeapp
+    password: tfeyskjgkdsjpfet
+    properties:
+      mail:
+        transport:
+          protocol: smtp
+        smtp:
+          connectiontimeout: 5000
+          timeout: 3000
+          auth: true
+          starttls:
+            enable: true
+
+mail:
+  name: schedulerfreeapp@gmail.com
+  debug: false
+
+app:
+  debug: true
+
+# определение файла для логирования при запуске
+#$ java -Dlogging.file=/home/scheduler/app/logs/app.log -jar scheduler-0.0.1-SNAPSHOT.jar
+logging:
+  level:
+    ru:
+      team:
+        scheduler:
+          oapi: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logFile.log
+
+# Секретный ключ приложения и время жизни
+jwt:
+  secret: 45T47fcXazP5pgMmWXKByCZWpWUzQrZrJMVegYVbcxhXFk22uVDWS9TAzpwmq8ZG
+  ttl: 3600
