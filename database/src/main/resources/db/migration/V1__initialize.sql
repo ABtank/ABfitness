@@ -36,6 +36,7 @@ CREATE TABLE users_roles
 );
 
 
-INSERT INTO roles (name)
-VALUES ('ROLE_USER'),
-       ('ROLE_ADMIN');
+INSERT INTO roles (name,description)
+VALUES ('ROLE_ADMIN','Админ'),
+        ('ROLE_USER','Пользователь'),
+        ('ROLE_COACH','Тренер');
